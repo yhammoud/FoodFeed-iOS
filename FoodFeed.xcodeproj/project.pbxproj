@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		212EAAF51CFB3305008DBB54 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212EAAF41CFB3305008DBB54 /* FirebaseService.swift */; };
+		212EAAF81CFB93C7008DBB54 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 212EAAF61CFB93C7008DBB54 /* Main.storyboard */; };
 		217A6F4D1CEFF63100992182 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217A6F4C1CEFF63100992182 /* AppDelegate.swift */; };
-		217A6F4F1CEFF63100992182 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217A6F4E1CEFF63100992182 /* ViewController.swift */; };
-		217A6F521CEFF63100992182 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 217A6F501CEFF63100992182 /* Main.storyboard */; };
 		217A6F541CEFF63100992182 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 217A6F531CEFF63100992182 /* Assets.xcassets */; };
 		217A6F571CEFF63100992182 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 217A6F551CEFF63100992182 /* LaunchScreen.storyboard */; };
 		217A6F621CEFF63100992182 /* FoodFeedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217A6F611CEFF63100992182 /* FoodFeedTests.swift */; };
@@ -37,10 +37,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		212EAAF41CFB3305008DBB54 /* FirebaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
+		212EAAF71CFB93C7008DBB54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		217A6F491CEFF63100992182 /* FoodFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		217A6F4C1CEFF63100992182 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		217A6F4E1CEFF63100992182 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		217A6F511CEFF63100992182 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		217A6F531CEFF63100992182 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		217A6F561CEFF63100992182 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		217A6F581CEFF63100992182 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -84,6 +84,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		212EAAF31CFB32F0008DBB54 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				212EAAF41CFB3305008DBB54 /* FirebaseService.swift */,
+			);
+			name = Service;
+			sourceTree = "<group>";
+		};
 		217A6F401CEFF63100992182 = {
 			isa = PBXGroup;
 			children = (
@@ -110,6 +118,7 @@
 		217A6F4B1CEFF63100992182 /* FoodFeed */ = {
 			isa = PBXGroup;
 			children = (
+				212EAAF31CFB32F0008DBB54 /* Service */,
 				217A6F801CF0B9BF00992182 /* Views */,
 				217A6F7F1CF0B9A600992182 /* Controllers */,
 				217A6F7E1CF0B99600992182 /* Models */,
@@ -142,7 +151,6 @@
 		217A6F7F1CF0B9A600992182 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				217A6F4E1CEFF63100992182 /* ViewController.swift */,
 				217A6F7A1CEFFBDE00992182 /* LoginViewController.swift */,
 				217A6F781CEFF71E00992182 /* SignupViewController.swift */,
 				217A6F811CF4C3E600992182 /* HomeViewController.swift */,
@@ -153,7 +161,7 @@
 		217A6F801CF0B9BF00992182 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				217A6F501CEFF63100992182 /* Main.storyboard */,
+				212EAAF61CFB93C7008DBB54 /* Main.storyboard */,
 				217A6F551CEFF63100992182 /* LaunchScreen.storyboard */,
 			);
 			name = Views;
@@ -240,9 +248,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				212EAAF81CFB93C7008DBB54 /* Main.storyboard in Resources */,
 				217A6F571CEFF63100992182 /* LaunchScreen.storyboard in Resources */,
 				217A6F541CEFF63100992182 /* Assets.xcassets in Resources */,
-				217A6F521CEFF63100992182 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,7 +270,7 @@
 			files = (
 				217A6F7B1CEFFBDE00992182 /* LoginViewController.swift in Sources */,
 				217A6F791CEFF71E00992182 /* SignupViewController.swift in Sources */,
-				217A6F4F1CEFF63100992182 /* ViewController.swift in Sources */,
+				212EAAF51CFB3305008DBB54 /* FirebaseService.swift in Sources */,
 				217A6F7D1CF0AEB600992182 /* User.swift in Sources */,
 				217A6F4D1CEFF63100992182 /* AppDelegate.swift in Sources */,
 				21ED37581CFA31DC00E6CB31 /* Post.swift in Sources */,
@@ -289,10 +297,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		217A6F501CEFF63100992182 /* Main.storyboard */ = {
+		212EAAF61CFB93C7008DBB54 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				217A6F511CEFF63100992182 /* Base */,
+				212EAAF71CFB93C7008DBB54 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

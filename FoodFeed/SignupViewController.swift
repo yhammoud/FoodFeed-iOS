@@ -11,7 +11,6 @@ import Firebase
 import UIKit
 
 class SignupViewController: UIViewController {
-    var ref = Firebase(url: "https://foodfeedapp.firebaseIO.com")
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
@@ -56,16 +55,24 @@ class SignupViewController: UIViewController {
     
     @IBAction func signUpAction(sender: UIButton) {
         let textFields = [self.email, self.username, self.password, self.firstName, self.lastName, self.birthday]
+        var nilFields: Bool = false
+        for field in textFields {
+            if (field.text == nil) {
+                nilFields = true
+                return
+            }
+        }
         
-        if (isValidEmail(self.email.text!)) {
-            self.ref.createUser(email.text, password: password.text, withValueCompletionBlock: { error, result in
+        if (isValidEmail(self.email.text!) && !nilFields) {
+            FIREBASE_REF.createUser(email.text, password: password.text, withValueCompletionBlock: { error, result in
                 if (error == nil) {
-                    let usersRef = self.ref.childByAppendingPath("users")
+                    let usersRef = FIREBASE_REF.childByAppendingPath("users")
                     let user = ["id": result["uid"]!, "username": self.username.text!, "email":self.email.text!, "first name": self.firstName.text!, "last name": self.lastName.text!, "dob": self.birthday.text!, "created_at": NSDate().description, "posts": 0, "followers": 0, "followings": 0, "is_active": false]
                     let userRef =  usersRef.childByAppendingPath(result["uid"] as! String)
                     userRef.setValue(user)
-                    self.ref.authUser(self.email.text, password: self.password.text, withCompletionBlock: { (error, auth) -> Void in
+                    FIREBASE_REF.authUser(self.email.text, password: self.password.text, withCompletionBlock: { (error, auth) -> Void in
                         if (error == nil) {
+                            NSUserDefaults.standardUserDefaults().setValue(auth.uid, forKey: "uid")
                             let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Home")
                             self.presentViewController(viewController, animated: true, completion: nil)
 
@@ -84,9 +91,10 @@ class SignupViewController: UIViewController {
                 }
             })
         } else {
-            let alert = UIAlertController(title: "Invalid Email or password", message: "Please enter a valid email address and password", preferredStyle: .Alert)
-            let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
-            alert.addAction(defaultAction)
+            print("Please fill in all the fields")
+//            let alert = UIAlertController(title: "Invalid Email or password", message: "Please enter a valid email address and password", preferredStyle: .Alert)
+//            let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+//            alert.addAction(defaultAction)
             for textField in textFields {
                 textField.text = ""
             }
@@ -102,6 +110,7 @@ class SignupViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
 
     
     func isValidEmail(testStr:String) -> Bool {
