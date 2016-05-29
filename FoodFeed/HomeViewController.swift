@@ -14,6 +14,7 @@ class HomeViewController: UIViewController {
     var ref = Firebase(url: "https://foodfeedapp.firebaseIO.com")
     @IBOutlet weak var username: UILabel!
     override func viewDidLoad() {
+        ref.
         super.viewDidLoad()
     }
     
