@@ -11,6 +11,7 @@ import Foundation
 class User: NSObject {
     
     var userID: Int!
+    var username: String!
     var userFName: String!
     var userLName: String!
     var userEmail: String!
@@ -20,10 +21,11 @@ class User: NSObject {
     var userNumOfFollowers: Int!
     var userNumOfFollowings: Int!
     
-    init(userID: Int, userFName: String, userLName: String, userEmail: String,  userDOB: NSDate, userCreatedAt: NSDate,
+    init(userID: Int, username: String, userFName: String, userLName: String, userEmail: String,  userDOB: NSDate, userCreatedAt: NSDate,
          userIsActive: Bool, userNumOfPosts: Int, userNumOfFollowers: Int, userNumOfFollowings: Int) {
         super.init()
         self.userID = userID
+        self.username = username
         self.userFName = userFName
         self.userLName = userLName
         self.userEmail = userEmail
@@ -40,6 +42,14 @@ class User: NSObject {
     
     func userIDSetter(id: Int) -> Void {
         self.userID = id
+    }
+    
+    func usernameGetter() -> String {
+        return self.username
+    }
+    
+    func usernameSetter(username: String) -> Void {
+        self.username = username
     }
     
     func userFNameGetter() -> String {

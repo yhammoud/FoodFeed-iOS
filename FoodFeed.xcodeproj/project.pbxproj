@@ -22,6 +22,8 @@
 		217A6F791CEFF71E00992182 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217A6F781CEFF71E00992182 /* SignupViewController.swift */; };
 		217A6F7B1CEFFBDE00992182 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217A6F7A1CEFFBDE00992182 /* LoginViewController.swift */; };
 		217A6F7D1CF0AEB600992182 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217A6F7C1CF0AEB600992182 /* User.swift */; };
+		217A6F821CF4C3E600992182 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217A6F811CF4C3E600992182 /* HomeViewController.swift */; };
+		21ED37581CFA31DC00E6CB31 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21ED37571CFA31DC00E6CB31 /* Post.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,8 @@
 		217A6F781CEFF71E00992182 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		217A6F7A1CEFFBDE00992182 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		217A6F7C1CF0AEB600992182 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		217A6F811CF4C3E600992182 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		21ED37571CFA31DC00E6CB31 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				217A6F7C1CF0AEB600992182 /* User.swift */,
+				21ED37571CFA31DC00E6CB31 /* Post.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -140,6 +145,7 @@
 				217A6F4E1CEFF63100992182 /* ViewController.swift */,
 				217A6F7A1CEFFBDE00992182 /* LoginViewController.swift */,
 				217A6F781CEFF71E00992182 /* SignupViewController.swift */,
+				217A6F811CF4C3E600992182 /* HomeViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -259,6 +265,8 @@
 				217A6F4F1CEFF63100992182 /* ViewController.swift in Sources */,
 				217A6F7D1CF0AEB600992182 /* User.swift in Sources */,
 				217A6F4D1CEFF63100992182 /* AppDelegate.swift in Sources */,
+				21ED37581CFA31DC00E6CB31 /* Post.swift in Sources */,
+				217A6F821CF4C3E600992182 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -458,6 +466,7 @@
 				217A6F681CEFF63100992182 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		217A6F691CEFF63100992182 /* Build configuration list for PBXNativeTarget "FoodFeedTests" */ = {
 			isa = XCConfigurationList;
@@ -466,6 +475,7 @@
 				217A6F6B1CEFF63100992182 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
