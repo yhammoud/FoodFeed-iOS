@@ -11,12 +11,11 @@ import UIKit
 import Firebase
 
 class LoginViewController: UIViewController {
-    
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBAction func loginAction(sender: UIButton) {
         if (self.email.text != nil && self.password.text != nil) {
-            FIREBASE_REF.authUser(email.text, password: password.text, withCompletionBlock: {
+            FirebaseService.firebaseService.BASE_REF.authUser(email.text, password: password.text, withCompletionBlock: {
                 (error, auth) -> Void in
                 if (error == nil) {
                     NSUserDefaults.standardUserDefaults().setValue(auth.uid, forKey: "uid")
@@ -37,9 +36,9 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        if ((NSUserDefaults.standardUserDefaults().valueForKey("uid") != nil) && (CURRENT_USER.authData != nil)) {
+        if ((NSUserDefaults.standardUserDefaults().valueForKey("uid") != nil) && (FirebaseService.firebaseService.CURRENT_USER.authData != nil)) {
             let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-            let destination = storyboard.instantiateViewControllerWithIdentifier("Home") as! HomeViewController
+            let destination = storyboard.instantiateViewControllerWithIdentifier("Home")
             navigationController?.pushViewController(destination, animated: true)
         }
     }

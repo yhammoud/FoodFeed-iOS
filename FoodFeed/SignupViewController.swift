@@ -18,6 +18,16 @@ class SignupViewController: UIViewController {
     @IBOutlet weak var lastName: UITextField!
     @IBOutlet weak var birthday: UITextField!
     
+    @IBAction func usernameEditAction(sender: UITextField) {
+        var isDuplicateUsername = false
+        Firebase(url: "\(FirebaseService.BASE)/usernames/\(self.username.text!)").observeEventType(.Value, withBlock: { snapshot in
+            isDuplicateUsername = snapshot.exists()
+        })
+
+        if (isDuplicateUsername) {
+            self.username.textColor = UIColor.redColor()
+        }
+    }
     
     @IBAction func editBirthday(sender: UITextField) {
         let inputView = UIView(frame: CGRectMake(0, 0, self.view.frame.width, 240))
@@ -63,14 +73,16 @@ class SignupViewController: UIViewController {
             }
         }
         
-        if (isValidEmail(self.email.text!) && !nilFields) {
-            FIREBASE_REF.createUser(email.text, password: password.text, withValueCompletionBlock: { error, result in
+        if (isValidEmail(self.email.text!) && !nilFields && self.username.textColor != UIColor.redColor()) {
+            FirebaseService.firebaseService.BASE_REF.createUser(email.text, password: password.text, withValueCompletionBlock: { error, result in
                 if (error == nil) {
-                    let usersRef = FIREBASE_REF.childByAppendingPath("users")
+                    let usersRef = FirebaseService.firebaseService.BASE_REF.childByAppendingPath("users").childByAppendingPath(result["uid"] as! String)
+                    let userNameRef = FirebaseService.firebaseService.BASE_REF.childByAppendingPath("usernames").childByAppendingPath(self.username.text)
+                    let usernameDict = ["id": result["uid"]!]
+                    userNameRef.setValue(usernameDict)
                     let user = ["id": result["uid"]!, "username": self.username.text!, "email":self.email.text!, "first name": self.firstName.text!, "last name": self.lastName.text!, "dob": self.birthday.text!, "created_at": NSDate().description, "posts": 0, "followers": 0, "followings": 0, "is_active": false]
-                    let userRef =  usersRef.childByAppendingPath(result["uid"] as! String)
-                    userRef.setValue(user)
-                    FIREBASE_REF.authUser(self.email.text, password: self.password.text, withCompletionBlock: { (error, auth) -> Void in
+                    usersRef.setValue(user)
+                    FirebaseService.firebaseService.BASE_REF.authUser(self.email.text, password: self.password.text, withCompletionBlock: { (error, auth) -> Void in
                         if (error == nil) {
                             NSUserDefaults.standardUserDefaults().setValue(auth.uid, forKey: "uid")
                             let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Home")
@@ -92,9 +104,6 @@ class SignupViewController: UIViewController {
             })
         } else {
             print("Please fill in all the fields")
-//            let alert = UIAlertController(title: "Invalid Email or password", message: "Please enter a valid email address and password", preferredStyle: .Alert)
-//            let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
-//            alert.addAction(defaultAction)
             for textField in textFields {
                 textField.text = ""
             }
@@ -111,7 +120,6 @@ class SignupViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
     
     func isValidEmail(testStr:String) -> Bool {
         let emailRegEx = "^(?:(?:(?:(?: )*(?:(?:(?:\\t| )*\\r\\n)?(?:\\t| )+))+(?: )*)|(?: )+)?(?:(?:(?:[-A-Za-z0-9!#$%&’*+/=?^_'{|}~]+(?:\\.[-A-Za-z0-9!#$%&’*+/=?^_'{|}~]+)*)|(?:\"(?:(?:(?:(?: )*(?:(?:[!#-Z^-~]|\\[|\\])|(?:\\\\(?:\\t|[ -~]))))+(?: )*)|(?: )+)\"))(?:@)(?:(?:(?:[A-Za-z0-9](?:[-A-Za-z0-9]{0,61}[A-Za-z0-9])?)(?:\\.[A-Za-z0-9](?:[-A-Za-z0-9]{0,61}[A-Za-z0-9])?)*)|(?:\\[(?:(?:(?:(?:(?:[0-9]|(?:[1-9][0-9])|(?:1[0-9][0-9])|(?:2[0-4][0-9])|(?:25[0-5]))\\.){3}(?:[0-9]|(?:[1-9][0-9])|(?:1[0-9][0-9])|(?:2[0-4][0-9])|(?:25[0-5]))))|(?:(?:(?: )*[!-Z^-~])*(?: )*)|(?:[Vv][0-9A-Fa-f]+\\.[-A-Za-z0-9._~!$&'()*+,;=:]+))\\])))(?:(?:(?:(?: )*(?:(?:(?:\\t| )*\\r\\n)?(?:\\t| )+))+(?: )*)|(?: )+)?$"

@@ -13,7 +13,7 @@ import UIKit
 class HomeViewController: UIViewController {
     @IBOutlet weak var username: UILabel!
     @IBAction func logoutAction(sender: UIButton) {
-        CURRENT_USER.unauth()
+        FirebaseService.firebaseService.CURRENT_USER.unauth()
         NSUserDefaults.standardUserDefaults().setValue(nil, forKey: "uid")
         let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Login")
         self.presentViewController(viewController, animated: true, completion: nil)
@@ -21,7 +21,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let id = CURRENT_USER.authData.uid as String
+        let id = FirebaseService.firebaseService.CURRENT_USER.authData.uid as String
         print(id)
         Firebase(url: "\(BASE)/users/\(id)/username").observeEventType(.Value, withBlock: { snapshot in
             self.username.text = (snapshot.value as! String)
