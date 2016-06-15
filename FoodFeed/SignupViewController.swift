@@ -11,6 +11,7 @@ import Firebase
 import UIKit
 
 class SignupViewController: UIViewController {
+    
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
@@ -19,14 +20,12 @@ class SignupViewController: UIViewController {
     @IBOutlet weak var birthday: UITextField!
     
     @IBAction func usernameEditAction(sender: UITextField) {
-        var isDuplicateUsername = false
-        Firebase(url: "\(FirebaseService.BASE)/usernames/\(self.username.text!)").observeEventType(.Value, withBlock: { snapshot in
-            isDuplicateUsername = snapshot.exists()
+        Firebase(url: "\(BASE)/usernames/\(self.username.text!)").observeEventType(.Value, withBlock: { snapshot in
+            if (snapshot.exists()) {
+                self.username.textColor = UIColor.redColor()
+                self.signupErrorAlert("Oops!", message: "This username is already used. Please try a different username.")
+            }
         })
-
-        if (isDuplicateUsername) {
-            self.username.textColor = UIColor.redColor()
-        }
     }
     
     @IBAction func editBirthday(sender: UITextField) {
@@ -65,6 +64,7 @@ class SignupViewController: UIViewController {
     
     @IBAction func signUpAction(sender: UIButton) {
         let textFields = [self.email, self.username, self.password, self.firstName, self.lastName, self.birthday]
+        
         var nilFields: Bool = false
         for field in textFields {
             if (field.text == nil) {
@@ -85,28 +85,16 @@ class SignupViewController: UIViewController {
                     FirebaseService.firebaseService.BASE_REF.authUser(self.email.text, password: self.password.text, withCompletionBlock: { (error, auth) -> Void in
                         if (error == nil) {
                             NSUserDefaults.standardUserDefaults().setValue(auth.uid, forKey: "uid")
-                            let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Home")
-                            self.presentViewController(viewController, animated: true, completion: nil)
-
-                        } else {
-                            print(error.description)
-                            for textField in textFields {
-                                textField.text = ""
-                            }
+                            self.performSegueWithIdentifier("signUpSuccess", sender: nil)
                         }
                     })
                 } else {
-                    print(error.description)
-                    for textField in textFields {
-                        textField.text = ""
-                    }
+                    self.signupErrorAlert("Oops!", message: "Having some trouble creating your account. Please try again.")
                 }
             })
         } else {
             print("Please fill in all the fields")
-            for textField in textFields {
-                textField.text = ""
-            }
+            signupErrorAlert("Oops!", message: "All fields are required. Please fill in all the fields above")
         }
     }
     
@@ -118,6 +106,16 @@ class SignupViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func signupErrorAlert(title: String, message: String) {
+        
+        // Called upon signup error to let the user know signup didn't work.
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        let action = UIAlertAction(title: "Ok", style: .Default, handler: nil)
+        alert.addAction(action)
+        presentViewController(alert, animated: true, completion: nil)
     }
     
     

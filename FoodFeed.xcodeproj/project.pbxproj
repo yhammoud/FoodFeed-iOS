@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		210F1B461D08F97B006CB901 /* FeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210F1B451D08F97B006CB901 /* FeedTableViewController.swift */; };
+		210F1B491D0CBAC2006CB901 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210F1B481D0CBAC2006CB901 /* Constants.swift */; };
+		210F1B4B1D0DCFB5006CB901 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 210F1B4A1D0DCFB5006CB901 /* MapKit.framework */; };
+		210F1B4D1D0DDE9B006CB901 /* ProfileCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210F1B4C1D0DDE9B006CB901 /* ProfileCollectionViewController.swift */; };
+		210F1B4F1D0F6039006CB901 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210F1B4E1D0F6039006CB901 /* SettingsViewController.swift */; };
 		212EAAF51CFB3305008DBB54 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212EAAF41CFB3305008DBB54 /* FirebaseService.swift */; };
 		212EAAF81CFB93C7008DBB54 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 212EAAF61CFB93C7008DBB54 /* Main.storyboard */; };
 		217A6F4D1CEFF63100992182 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217A6F4C1CEFF63100992182 /* AppDelegate.swift */; };
@@ -21,7 +26,6 @@
 		217A6F771CEFF68200992182 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 217A6F761CEFF68200992182 /* libicucore.tbd */; };
 		217A6F791CEFF71E00992182 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217A6F781CEFF71E00992182 /* SignupViewController.swift */; };
 		217A6F7B1CEFFBDE00992182 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217A6F7A1CEFFBDE00992182 /* LoginViewController.swift */; };
-		217A6F7D1CF0AEB600992182 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217A6F7C1CF0AEB600992182 /* User.swift */; };
 		21ED37581CFA31DC00E6CB31 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21ED37571CFA31DC00E6CB31 /* Post.swift */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +40,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		210F1B451D08F97B006CB901 /* FeedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewController.swift; sourceTree = "<group>"; };
+		210F1B481D0CBAC2006CB901 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		210F1B4A1D0DCFB5006CB901 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		210F1B4C1D0DDE9B006CB901 /* ProfileCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileCollectionViewController.swift; sourceTree = "<group>"; };
+		210F1B4E1D0F6039006CB901 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		212EAAF41CFB3305008DBB54 /* FirebaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		212EAAF71CFB93C7008DBB54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		217A6F491CEFF63100992182 /* FoodFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -54,7 +63,6 @@
 		217A6F761CEFF68200992182 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		217A6F781CEFF71E00992182 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		217A6F7A1CEFFBDE00992182 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		217A6F7C1CF0AEB600992182 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		21ED37571CFA31DC00E6CB31 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				210F1B4B1D0DCFB5006CB901 /* MapKit.framework in Frameworks */,
 				217A6F771CEFF68200992182 /* libicucore.tbd in Frameworks */,
 				217A6F751CEFF67900992182 /* libc++.tbd in Frameworks */,
 				217A6F731CEFF66F00992182 /* SystemConfiguration.framework in Frameworks */,
@@ -82,6 +91,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		210F1B471D0CBAA9006CB901 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				210F1B481D0CBAC2006CB901 /* Constants.swift */,
+			);
+			name = Utility;
+			sourceTree = "<group>";
+		};
 		212EAAF31CFB32F0008DBB54 /* Service */ = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +110,7 @@
 		217A6F401CEFF63100992182 = {
 			isa = PBXGroup;
 			children = (
+				210F1B4A1D0DCFB5006CB901 /* MapKit.framework */,
 				217A6F761CEFF68200992182 /* libicucore.tbd */,
 				217A6F741CEFF67900992182 /* libc++.tbd */,
 				217A6F721CEFF66F00992182 /* SystemConfiguration.framework */,
@@ -116,6 +134,7 @@
 		217A6F4B1CEFF63100992182 /* FoodFeed */ = {
 			isa = PBXGroup;
 			children = (
+				210F1B471D0CBAA9006CB901 /* Utility */,
 				212EAAF31CFB32F0008DBB54 /* Service */,
 				217A6F801CF0B9BF00992182 /* Views */,
 				217A6F7F1CF0B9A600992182 /* Controllers */,
@@ -140,7 +159,6 @@
 		217A6F7E1CF0B99600992182 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				217A6F7C1CF0AEB600992182 /* User.swift */,
 				21ED37571CFA31DC00E6CB31 /* Post.swift */,
 			);
 			name = Models;
@@ -149,8 +167,11 @@
 		217A6F7F1CF0B9A600992182 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				210F1B451D08F97B006CB901 /* FeedTableViewController.swift */,
 				217A6F7A1CEFFBDE00992182 /* LoginViewController.swift */,
 				217A6F781CEFF71E00992182 /* SignupViewController.swift */,
+				210F1B4C1D0DDE9B006CB901 /* ProfileCollectionViewController.swift */,
+				210F1B4E1D0F6039006CB901 /* SettingsViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -268,9 +289,12 @@
 				217A6F7B1CEFFBDE00992182 /* LoginViewController.swift in Sources */,
 				217A6F791CEFF71E00992182 /* SignupViewController.swift in Sources */,
 				212EAAF51CFB3305008DBB54 /* FirebaseService.swift in Sources */,
-				217A6F7D1CF0AEB600992182 /* User.swift in Sources */,
+				210F1B461D08F97B006CB901 /* FeedTableViewController.swift in Sources */,
+				210F1B4D1D0DDE9B006CB901 /* ProfileCollectionViewController.swift in Sources */,
 				217A6F4D1CEFF63100992182 /* AppDelegate.swift in Sources */,
 				21ED37581CFA31DC00E6CB31 /* Post.swift in Sources */,
+				210F1B491D0CBAC2006CB901 /* Constants.swift in Sources */,
+				210F1B4F1D0F6039006CB901 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

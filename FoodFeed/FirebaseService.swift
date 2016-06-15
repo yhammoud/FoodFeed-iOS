@@ -1,3 +1,4 @@
+
 //
 //  FirebaseService.swift
 //  FoodFeed
@@ -11,7 +12,6 @@ import Firebase
 
 class FirebaseService {
     static let firebaseService = FirebaseService()
-    static let BASE = "https://foodfeedapp.firebaseIO.com"
     private let _BASE_REF = Firebase(url: "\(BASE)")
     private let _USER_REF = Firebase(url: "\(BASE)/users")
     private let _USERNAME_REF = Firebase(url: "\(BASE)/usernames")
@@ -29,12 +29,14 @@ class FirebaseService {
         return _USERNAME_REF
     }
     
+    var POST_REF: Firebase {
+        return _POST_REF
+    }
+    
     var CURRENT_USER: Firebase {
         let userId = NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String
         let current_user = BASE_REF.childByAppendingPath("user").childByAppendingPath(userId)
         return current_user
     }
-    
-    
 }
 
