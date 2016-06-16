@@ -612,6 +612,9 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="camera" id="zfq-3i-uJ8">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="cameraRollAction:" destination="Atp-YD-vQa" id="rEn-UJ-Uyz"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
